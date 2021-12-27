@@ -427,7 +427,7 @@ msgstr ""
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_footer.html.eex:22
-msgid "Blockscout is a tool for inspecting and analyzing EVM based blockchains. Blockchain explorer for Ethereum Networks."
+msgid "Tagcash is authorised and regulated by the BSP (Central Bank of Philippines) as an Electronic Money Issuer. Tagcash is also registered in Europe (Cyprus) and USA as Tagcash Ltd."
 msgstr ""
 
 #, elixir-format
@@ -1112,7 +1112,7 @@ msgstr ""
 #: lib/block_scout_web/templates/layout/app.html.eex:45 lib/block_scout_web/templates/transaction/_pending_tile.html.eex:20
 #: lib/block_scout_web/templates/transaction/_tile.html.eex:37 lib/block_scout_web/templates/transaction/overview.html.eex:411
 #: lib/block_scout_web/views/wei_helpers.ex:78
-msgid "Ether"
+msgid "TAG"
 msgstr ""
 
 #, elixir-format
@@ -1239,7 +1239,7 @@ msgstr ""
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_footer.html.eex:24
-msgid "Github"
+msgid "LinkedIn"
 msgstr ""
 
 #, elixir-format
@@ -2231,7 +2231,7 @@ msgstr ""
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_footer.html.eex:30
-msgid "Telegram"
+msgid "Facebook"
 msgstr ""
 
 #, elixir-format
