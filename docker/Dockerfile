@@ -1,4 +1,4 @@
-FROM bitwalker/alpine-elixir-phoenix:1.12.2
+FROM bitwalker/alpine-elixir-phoenix:1.12
 
 RUN apk --no-cache --update add alpine-sdk gmp-dev automake libtool inotify-tools autoconf python3 file
 
@@ -25,9 +25,6 @@ ENV PORT=4000 \
     MIX_ENV="prod" \
     SECRET_KEY_BASE="RMgI4C1HSkxsEjdhtGMfwAHfyT6CKWXOgzCboJflfSm4jeAlic52io05KB6mqzc5"
 
-WORKDIR /opt/app/
-ENV PATH=./node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-
 # Cache elixir deps
 ADD mix.exs mix.lock ./
 ADD apps/block_scout_web/mix.exs ./apps/block_scout_web/
@@ -48,14 +45,13 @@ RUN mix compile
 RUN npm install npm@latest
 
 # Add blockscout npm deps
-# RUN cd apps/block_scout_web/assets/ && \
-#     npm install && \
-#     npm run deploy && \
-#     cd -
-RUN cd apps/block_scout_web/assets/ && npm install && npm run deploy && cd -
-RUN cd apps/explorer/ && npm install && apk update && apk del --force-broken-world alpine-sdk gmp-dev automake libtool inotify-tools autoconf python3
-# RUN cd apps/explorer/ && \
-#     npm install && \
-# RUN apk update && apk del --force-broken-world alpine-sdk gmp-dev automake libtool inotify-tools autoconf python3
+RUN cd apps/block_scout_web/assets/ && \
+    npm install && \
+    npm run deploy && \
+    cd -
+
+RUN cd apps/explorer/ && \
+    npm install && \
+    apk update && apk del --force-broken-world alpine-sdk gmp-dev automake libtool inotify-tools autoconf python3
 
 RUN mix phx.digest
